@@ -1,0 +1,385 @@
+<html lang="pt-BR">
+ <head>
+ </head>
+ <body>
+  ï»¿
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Viva Sorte
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="css2.html" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap-icons.min.css" rel="stylesheet"/>
+  <header class="white-header">
+   <div class="logo">
+    <img alt="Logomarca" class="logoviva" src="images/logoviva.png"/>
+   </div>
+   <button class="menu-button" id="menuButton">
+    0
+    <!-- Ãcone de trÃªs linhas -->
+   </button>
+  </header>
+  <meta charset="utf-8"/>
+  <div class="banner">
+   <div class="container-banner">
+    <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleSlidesOnly">
+     <div class="carousel-inner">
+      <div class="carousel-item active">
+       <div class="tag-compre-agora">
+        <span>
+         Site Oficial
+        </span>
+       </div>
+       <img alt="..." class="d-block w-100" src="images/1m.jpg"/>
+      </div>
+     </div>
+    </div>
+    <!--
+      <div class="infos-banner">
+              <h1>Viva Sorte - 02/06/2024</h1> 
+              <h2>DOM, 02 JUN | 2024</h2> 
+              <h3>PORSCHE + BMW + RAM POR APENAS 99 CENTAVOS!</h3>        
+      </div>
+  -->
+   </div>
+  </div>
+  <div class="sorteio-date w-100 text-center">
+   <h1>
+    Sorteio HOJE
+    <span id="contador" style="background-color: #f0ad4e;">
+    </span>
+    por apenas
+    <span style="background-color: #2f4eb5;">
+     R$0,99
+    </span>
+   </h1>
+  </div>
+  <script>
+   function atualizarContador() {
+      // Obter o elemento span pelo ID
+      var span = document.getElementById('contador');
+  
+      // Obter a data atual
+      var hoje = new Date();
+  
+      // Calcular o nÃºmero de dias restantes atÃ© o prÃ³ximo domingo (0 para domingo, 1 para segunda-feira, ..., 6 para sÃ¡bado)
+      var diasRestantes = 6 - hoje.getDay();
+  
+      // Se for domingo, reinicie o contador para 7 dias
+      if (diasRestantes === 0) {
+          diasRestantes = 0;
+      }
+  
+      // Atualizar o conteÃºdo do span
+      span.textContent = diasRestantes === 1 ? '1 dia' : diasRestantes + ' dias';
+  }
+  
+  // Chamar a funÃ§Ã£o para atualizar o contador quando a pÃ¡gina carregar
+  atualizarContador();
+  
+  // Chamar a funÃ§Ã£o para atualizar o contador a cada 24 horas
+  setInterval(atualizarContador, 24 * 60 * 60 * 1000);
+  </script>
+  <div class="container-principal">
+   <!-- BANNER -->
+   <!-- COTAS -->
+   <div class="cotas">
+    <div class="cotas-one">
+     <button class="cota" onclick="selecionarValor(15)" type="button">
+      <div class="cota-qtd">
+       +15
+      </div>
+      <h1>
+       R$14,85
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+     <button class="cota" onclick="selecionarValor(30)" type="button">
+      <div class="cota-qtd">
+       +30
+      </div>
+      <h1>
+       R$29,70
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+     <button class="cota" onclick="selecionarValor(40)" type="button">
+      <div class="cota-qtd">
+       +40
+      </div>
+      <h1>
+       R$39,60
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+    </div>
+    <div class="cotas-one">
+     <button class="cota" onclick="selecionarValor(70)" type="button">
+      <i class="bi bi-star-fill destaque">
+      </i>
+      <div class="cota-qtd">
+       +70
+      </div>
+      <h1>
+       R$69,30
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+     <button class="cota" onclick="selecionarValor(100)" type="button">
+      <div class="cota-qtd">
+       +100
+      </div>
+      <h1>
+       R$99,00
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+     <button class="cota" onclick="selecionarValor(200)" type="button">
+      <div class="cota-qtd">
+       +200
+      </div>
+      <h1>
+       R$199,00
+      </h1>
+      <h2>
+       SELECIONAR
+      </h2>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="container-principal">
+   <div class="contador-cotas">
+    <span>
+     <button class="btn-contador-cotas" onclick="decrementar()" type="button">
+      -
+     </button>
+    </span>
+    <input class="input-contador-cotas" id="numero" min="0" oninput="highlightButton()" type="number" value="0"/>
+    <span>
+     <button class="btn-contador-cotas" onclick="incrementar()" type="button">
+      +
+     </button>
+    </span>
+   </div>
+   <button class="adc-carrinho" disabled="" id="btn-adicionar-carrinho" onclick="adicionarAoCarrinho()" type="button">
+    <i class="bi bi-cart-fill">
+    </i>
+    COMPRAR TÃTULOS
+   </button>
+   <div class="sorteio-date w-100 text-center" style="margin-top: 5px;">
+    <br/>
+    <h1 style="font-size: 0.72rem;">
+     Comprar mais tÃ­tulos aumenta suas chances de ganhar!
+    </h1>
+    <div class="container-principal">
+     <div class="hospital">
+      <div class="card-hospital">
+       <div class="card-hospital-image">
+        <img src="images/logo-hospital.svg"/>
+        <h2>
+         InstituiÃ§Ã£o beneficiada
+        </h2>
+       </div>
+       <div class="card-hospital-text">
+        <p>
+         O Hospital do CÃ¢ncer de Londrina, fundado em 08 de novembro de 1965 por Lucilla Pinto Ballalai, foi originalmente chamado Centro Norte Paranaense de Pesquisas MÃ©dicas. Criado com o objetivo de melhorar o tratamento do cÃ¢ncer e a qualidade de vida, o hospital focava inicialmente na prevenÃ§Ã£o do cÃ¢ncer de colo de Ãºtero entre as mulheres de Londrina e regiÃ£o. A instituiÃ§Ã£o sempre buscou aprimorar seus recursos humanos, cientÃ­ficos e tecnolÃ³gicos.
+        </p>
+       </div>
+      </div>
+      <div class="card-hospital card-hospital-bg-azul">
+       <div class="card-hospital-image">
+        <img src="images/viva-hosp.svg"/>
+        <h2>
+         Viva PrivilÃ©gios
+        </h2>
+       </div>
+       <div class="card-hospital-text">
+        <p>
+         Viva PrivilÃ©gios, um programa que enriquece sua vida com acesso ï¿½ï¿½ï¿½ï¿½ saÃºde, alimentaÃ§Ã£o, transporte e mais. Com cada compra, acumule pontos para trocar por consultas mÃ©dicas, receber cashback, e utilizar serviÃ§os de telefonia e apps de transporte e alimentaÃ§Ã£o. Eleve sua qualidade de vida e desfrute de mais conveniÃªncia e economia!
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <link href="css/rodape.css" rel="stylesheet"/>
+  <div class="rodape">
+   <div class="container-principal">
+    <img class="logo-rodape" src="images/logoviva.png"/>
+    <div class="redes">
+     <i class="bi bi-instagram">
+     </i>
+     <i class="bi bi-facebook">
+     </i>
+     <i class="bi bi-twitter">
+     </i>
+     <i class="bi bi-youtube">
+     </i>
+    </div>
+    <h1>
+     Sorteios lastreados por TÃ­tulos de CapitalizaÃ§Ã£o, da Modalidade Incentivo, emitidos pela VIA CapitalizaÃ§Ã£o S.A, inscrita no CNPJ sob nÂº 88.076.302/0001-94, e aprovados pela SUSEP atravÃ©s do registro na SUSEP Sorteio nÂ° 15414.652257/2023-51. O valor das premiaÃ§Ãµes aqui indicados sÃ£o lÃ­quidos, jÃ¡ descontado o devido imposto de renda de 25%. O registro deste plano na SUSEP nÃ£o implica, por parte da Autarquia, incentivo ou recomendaÃ§Ã£o a sua comercializaÃ§Ã£o.
+    </h1>
+    <div class="linha-rodape">
+    </div>
+    <div class="patterns-rodape">
+     <div class="pattern-rodape">
+      TÃ­tulos emitidos por:
+      <img src="images/viacap.png"/>
+     </div>
+     <div class="pattern-rodape">
+      PromoÃ§Ã£o realizada por:
+      <img src="images/viva.png"/>
+     </div>
+     <div class="pattern-rodape">
+      Desenvolvimento:
+      <img src="https://vivaasorteofc.online/vivahoje/images/edjdigital.png"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- BOTÃO + E - -->
+  <script>
+   const precoPorUnidade = 0.99;
+  
+      function incrementar() {
+          var input = document.getElementById('numero');
+          var valorAtual = parseInt(input.value);
+          if (valorAtual < 200) {
+              if (valorAtual === 0) {
+                  input.value = 15;
+              } else if (valorAtual === 15) {
+                  input.value = 30;
+              } else if (valorAtual === 30) {
+                  input.value = 40;
+              } else if (valorAtual === 40) {
+                  input.value = 70;
+              } else if (valorAtual === 70) {
+                  input.value = 100;
+              } else if (valorAtual === 100) {
+                  input.value = 200;
+              }
+          }
+          highlightButton();
+      }
+  
+      function decrementar() {
+          var input = document.getElementById('numero');
+          var valorAtual = parseInt(input.value);
+          if (valorAtual > 15) {
+              if (valorAtual === 200) {
+                  input.value = 100;
+              } else if (valorAtual === 100) {
+                  input.value = 70;
+              } else if (valorAtual === 70) {
+                  input.value = 40;
+              } else if (valorAtual === 40) {
+                  input.value = 30;
+              } else if (valorAtual === 30) {
+                  input.value = 15;
+              }
+          }
+          highlightButton();
+      }
+  
+      function highlightButton() {
+          var input = document.getElementById('numero');
+          var valorAtual = parseInt(input.value);
+          var botoesCotas = document.querySelectorAll('.cota');
+          var botaoAdicionarCarrinho = document.getElementById('btn-adicionar-carrinho');
+          var valorTotal = document.getElementById('valor-total');
+          var link;
+  
+          botoesCotas.forEach(function (botao) {
+              botao.classList.remove('cota-selected');
+              var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
+              if (valorBotao === valorAtual) {
+                  botao.classList.add('cota-selected');
+                  switch (valorBotao) {
+                      case 15:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/80f7d9ba-e11e-466b-a284-dd39cc7dbdb2";
+                          break;
+                      case 30:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/5dabc7d6-e4fc-43ba-8948-fa85c2cbe101";
+                          break;
+                      case 40:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/40513526-f0c8-4437-a6f2-a581acf50141";
+                          break;
+                      case 70:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/8f3f1098-b33c-4e8c-9dfe-d9758f60378c";
+                          break;
+                      case 100:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/c8964c15-0b5a-41d4-b7f4-516446475103";
+                          break;
+                              case 200:
+                          link = "https://pay.vivasorteoficiall.fun/checkout/45d816d3-d596-47df-a759-a06668ea065e";
+                          break;
+                  
+                      default:
+                          break;
+                  }
+                  botaoAdicionarCarrinho.setAttribute('onclick', 'adicionarAoCarrinho("' + link + '")');
+              }
+          });
+  
+          if (valorAtual === 0) {
+              botaoAdicionarCarrinho.disabled = true;
+              valorTotal.innerText = "R$ 0,00";
+          } else {
+              botaoAdicionarCarrinho.disabled = false;
+              valorTotal.innerText = "R$ " + (valorAtual * precoPorUnidade).toFixed(2).replace('.', ',');
+          }
+      }
+  
+      function selecionarValor(valor) {
+          var input = document.getElementById('numero');
+          input.value = valor;
+          highlightButton();
+      }
+  
+      function adicionarAoCarrinho(link) {
+        window.location.href = link + window.location.search;
+      }
+  
+      document.getElementById('numero').addEventListener('input', function () {
+          this.value = this.value.replace(/[^0-9]/g, ''); // Apenas nÃºmeros permitidos
+          var valor = parseInt(this.value);
+          if (valor > 500) {
+              this.value = 500;
+          } else if (valor < 10) {
+              this.value = 0;
+          } else if (valor % 10 !== 0) {
+              this.value = Math.floor(valor / 10) * 10;
+          }
+          highlightButton();
+      });
+  </script>
+  <script crossorigin="anonymous" src="js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   window.pixelId = "67b97607e690b02ba5a399e4";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script async="" data-utmify-prevent-subids="" defer="" src="js/latest.js">
+  </script>
+ </body>
+</html>
